@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="#f8fcf8"
     android:layout_height="match_parent"
-    tools:context=".Notificaciones">
-
+    android:background="#f8fcf8"
+    tools:context=".notificacion">
     <TextView
         android:id="@+id/subtitle6"
         android:layout_width="wrap_content"
@@ -83,7 +82,8 @@
             android:layout_height="38dp"
             android:layout_marginEnd="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/persona" />
+            android:src="@drawable/persona"
+            android:scaleType="fitCenter"/>
 
 
     </LinearLayout>
@@ -185,7 +185,5 @@
 
         </LinearLayout>
 
-        </LinearLayout>
-
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
