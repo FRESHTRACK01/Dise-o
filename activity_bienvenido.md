@@ -23,11 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <!-- Primer ImageButton -->
-
-        <!-- Segundo ImageButton -->
-
         <ImageButton
             android:id="@+id/icon_two"
             android:layout_width="wrap_content"
