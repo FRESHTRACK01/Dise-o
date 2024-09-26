@@ -6,26 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8fcf8"
-    tools:context="com.example.inicio.Perfil">
-
-
-    <!-- Logout Button -->
-
-
+    tools:context=".perfil">
     <Button
         android:id="@+id/olvidar_button2"
-        android:layout_width="242dp"
-        android:layout_height="39dp"
+        android:layout_width="238dp"
+        android:layout_height="47dp"
         android:background="@android:color/transparent"
         android:text="Cambiar contraseña"
         android:textColor="#4e9750"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.774" />
 
     <TextView
         android:id="@+id/title4"
@@ -47,6 +42,7 @@
         android:layout_width="86dp"
         android:layout_height="41dp"
         android:text="Perfil"
+        android:background="@android:color/transparent"
         android:textColor="#0e1b0e"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -201,11 +197,12 @@
 
     <Button
         android:id="@+id/logoutButton"
-        android:layout_width="124dp"
-        android:layout_height="43dp"
+        android:layout_width="202dp"
+        android:layout_height="60dp"
         android:backgroundTint="@android:color/transparent"
         android:padding="10dp"
         android:text="Cerrar Sesion"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -219,11 +216,13 @@
         android:id="@+id/imageButton"
         android:layout_width="53dp"
         android:layout_height="42dp"
-        android:src="@drawable/atras"
+        android:background="@drawable/fondo"
+        app:srcCompat="@android:drawable/ic_menu_revert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
