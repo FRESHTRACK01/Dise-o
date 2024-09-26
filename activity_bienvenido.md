@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.inicio.bienvenido">
-
+    tools:context=".inicio">
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -63,11 +62,11 @@
 
         <ImageButton
             android:id="@+id/icon_one"
-            android:layout_width="44dp"
-            android:layout_height="38dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="70dp"
+            android:layout_height="104dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/persona" />
+            android:src="@drawable/persona"
+            android:scaleType="fitCenter"/>
 
 
     </LinearLayout>
@@ -169,9 +168,7 @@
                 android:layout_height="64dp"
                 android:layout_gravity="center_vertical"
                 android:background="@color/black"
-                android:contentDescription="@string/item_image_description"
-                android:scaleType="centerCrop"
-                android:src="@drawable/" />
+                android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -204,7 +201,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/item_quantity_label"
+                    android:id="@+id/dos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -213,7 +210,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/item_quantity"
+                    android:id="@+id/trescu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(Tipo)"
@@ -331,7 +328,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/item_Pre"
+                    android:id="@+id/item_Pred"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(Codigo)"
