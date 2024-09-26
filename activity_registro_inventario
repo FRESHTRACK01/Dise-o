@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8fcf8"
-    tools:context="com.example.inicio.Registro">
-
-
+    tools:context=".registro_inventario">
     <TextView
         android:id="@+id/subtitle3"
         android:layout_width="wrap_content"
@@ -25,28 +23,28 @@
         app:layout_constraintVertical_bias="0.169" />
 
     <Button
-        android:id="@+id/register_button2"
-        android:layout_width="85dp"
-        android:layout_height="25dp"
+        android:id="@+id/register_button_2"
+        android:layout_width="136dp"
+        android:layout_height="58dp"
         android:background="@android:color/transparent"
         android:text="Escanear"
-        android:textColor="#0e1b0e"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963" />
+        app:layout_constraintVertical_bias="0.989" />
 
     <Button
-        android:id="@+id/inicio_button2"
+        android:id="@+id/inicio_button_2"
         android:layout_width="169dp"
         android:layout_height="56dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/fondo2"
         android:padding="12dp"
-        android:text="       Guardar "
+        android:text="Guardar"
         android:textColor="#0e1b0e"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -116,14 +114,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.563" />
 
-    <TextView
+    <EditText
         android:id="@+id/item_quantity"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"
         android:background="@drawable/fondo"
-        android:text="(Cantidad)"
+        android:hint="(Cantidad)"
         android:textColor="#4e9750"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,7 +131,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.556" />
 
-    <TextView
+    <EditText
         android:id="@+id/item_quantity2"
         android:layout_width="232dp"
         android:layout_height="30dp"
@@ -165,14 +163,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.629" />
 
-    <TextView
+    <EditText
         android:id="@+id/item_feE"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"
         android:background="@drawable/fondo"
-        android:text="(Fecha de entrada)"
+        android:hint="(Fecha de entrada)"
         android:textColor="#4e9750"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -197,14 +195,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.699" />
 
-    <TextView
+    <EditText
         android:id="@+id/item_feS"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"
         android:background="@drawable/fondo"
-        android:text="(Fecha de salida)"
+        android:hint="(Fecha de salida)"
         android:textColor="#4e9750"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -230,14 +228,14 @@
         app:layout_constraintVertical_bias="0.755" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/item_Prec"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"
         android:background="@drawable/fondo"
-        android:text="(Precio)"
+        android:hint="(Precio)"
         android:textColor="#4e9750"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -259,7 +257,7 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -306,13 +304,14 @@
             android:layout_height="38dp"
             android:layout_marginEnd="16dp"
             android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
             android:src="@drawable/persona" />
 
 
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/camara"
         android:layout_width="69dp"
         android:layout_height="55dp"
         android:layout_gravity="center_vertical"
@@ -351,4 +350,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
