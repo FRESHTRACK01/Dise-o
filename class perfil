@@ -1,0 +1,36 @@
+package com.example.fresh_track
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class perfil : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_perfil)
+        val ini = findViewById<Button>(R.id.olvidar_button2)
+        ini.setOnClickListener {
+            val intent = Intent(this, cambiarcontra2::class.java)
+            startActivity(intent)
+        }
+
+        val ce = findViewById<Button>(R.id.logoutButton)
+        ce.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        val re = findViewById<ImageButton>(R.id.imageButton)
+        re.setOnClickListener {
+            // Crear un Intent para iniciar SecondActivity
+            val intent = Intent(this, inicio::class.java)
+            startActivity(intent) // Inicia la nueva actividad
+        }
+    }
+}
