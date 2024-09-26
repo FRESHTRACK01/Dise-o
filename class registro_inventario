@@ -1,0 +1,70 @@
+package com.example.fresh_track
+
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Bundle
+import android.provider.MediaStore
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+
+class registro_inventario : AppCompatActivity() {
+
+    private lateinit var imageView: ImageView
+    private lateinit var galleryLauncher: ActivityResultLauncher<String>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_registro_inventario)
+
+        // Inicializar el ImageView
+        imageView = findViewById(R.id.camara)
+
+        // Configurar el launcher para manejar el resultado de la galería
+        galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            if (uri != null) {
+                imageView.setImageURI(uri) // Mostrar la imagen seleccionada en el ImageView
+            }
+        }
+
+        // Configurar el clic en el ImageView para abrir la galería
+        imageView.setOnClickListener {
+            openGallery()
+        }
+
+        // Navegación a otras actividades
+        val men = findViewById<ImageButton>(R.id.icon_two)
+        men.setOnClickListener {
+            val intent = Intent(this, menu::class.java)
+            startActivity(intent)
+        }
+
+        val pe = findViewById<ImageButton>(R.id.icon_one)
+        pe.setOnClickListener {
+            val intent = Intent(this, perfil::class.java)
+            startActivity(intent)
+        }
+
+        val es = findViewById<Button>(R.id.register_button_2)
+        es.setOnClickListener {
+            val intent = Intent(this, codigodebarras::class.java)
+            startActivity(intent)
+        }
+
+        val per = findViewById<ImageButton>(R.id.imageButton2)
+        per.setOnClickListener {
+            val intent = Intent(this, codigodebarras::class.java)
+            startActivity(intent)
+        }
+    }
+
+    // Función para abrir la galería
+    private fun openGallery() {
+        galleryLauncher.launch("image/*") // Lanza el intent para seleccionar una imagen
+    }
+}
