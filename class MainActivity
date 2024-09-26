@@ -1,0 +1,61 @@
+package com.example.fresh_track
+
+import android.content.Intent
+import android.os.Bundle
+import android.text.InputType
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var passwordEditText: EditText
+    private lateinit var togglePasswordButton: ImageButton
+    private var isPasswordVisible = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+        passwordEditText = findViewById(R.id.password)
+        togglePasswordButton = findViewById(R.id.btn_show_password)
+
+        togglePasswordButton.setOnClickListener {
+            // Guarda la posición del cursor antes de cambiar el inputType
+            val cursorPosition = passwordEditText.selectionStart
+
+            if (isPasswordVisible) {
+                // Ocultar contraseña
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                togglePasswordButton.setImageResource(R.drawable.ver) // Cambia el ícono a "cerrado"
+                isPasswordVisible = false
+            } else {
+                // Mostrar contraseña
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                togglePasswordButton.setImageResource(R.drawable.no__ver) // Cambia el ícono a "abierto"
+                isPasswordVisible = true
+            }
+
+            // Restaurar la posición del cursor
+            passwordEditText.setSelection(cursorPosition)
+        }
+
+        val ol = findViewById<Button>(R.id.olvidar_button)
+        ol.setOnClickListener {
+            val intent = Intent(this, cambiarcontra::class.java)
+            startActivity(intent)
+        }
+        val cm = findViewById<Button>(R.id.register_button)
+        cm.setOnClickListener {
+            val intent = Intent(this, registro::class.java)
+            startActivity(intent)
+        }
+        val ini = findViewById<Button>(R.id.inicio_button)
+        ini.setOnClickListener {
+            val intent = Intent(this, inicio::class.java)
+            startActivity(intent)
+        }
+    }
+}
