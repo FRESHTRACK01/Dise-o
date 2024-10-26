@@ -22,6 +22,7 @@ class codigodebarras : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_codigodebarras)
 
         // Configura el botón que abrirá la cámara
