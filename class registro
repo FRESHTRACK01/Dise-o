@@ -2,22 +2,99 @@ package com.example.fresh_track
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 
 class registro : AppCompatActivity() {
+    private lateinit var usernameEditText: EditText
+    private lateinit var correoEditText: EditText
+    private lateinit var numeroEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var passwordConfEditText: EditText
+    private lateinit var togglePasswordButton: ImageButton
+    private lateinit var togglePasswordConfButton: ImageButton
+
+    private var isPasswordVisible = false
+    private var isPasswordConfVisible = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_registro)
+
+        // Inicializa los EditTexts
+        usernameEditText = findViewById(R.id.username)
+        correoEditText = findViewById(R.id.correo)
+        numeroEditText = findViewById(R.id.numero)
+        passwordEditText = findViewById(R.id.password)
+        passwordConfEditText = findViewById(R.id.passwordconf)
+
+        // Inicializa los botones para mostrar/ocultar contraseñas
+        togglePasswordButton = findViewById(R.id.btn_show_password)
+        togglePasswordConfButton = findViewById(R.id.btn_show_password1)
+
+        togglePasswordButton.setOnClickListener {
+            isPasswordVisible = togglePasswordVisibility(passwordEditText, togglePasswordButton, isPasswordVisible)
+        }
+
+        togglePasswordConfButton.setOnClickListener {
+            isPasswordConfVisible = togglePasswordVisibility(passwordConfEditText, togglePasswordConfButton, isPasswordConfVisible)
+        }
 
         val lo = findViewById<Button>(R.id.register_button)
         lo.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val cam = findViewById<Button>(R.id.guardar)
+        cam.setOnClickListener {
+            // Mostrar un mensaje de registro guardado
+            Toast.makeText(this, "Registro guardado", Toast.LENGTH_SHORT).show()
+
+            // Limpiar los campos de EditText
+            clearEditTexts()
+            cam.postDelayed({
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }, 1000)
+        }
+    }
+
+    // Función para alternar la visibilidad de las contraseñas
+    private fun togglePasswordVisibility(editText: EditText, button: ImageButton, isVisible: Boolean): Boolean {
+        // Guarda la posición del cursor antes de cambiar el inputType
+        val cursorPosition = editText.selectionStart
+
+        if (isVisible) {
+            // Ocultar contraseña
+            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            button.setImageResource(R.drawable.ver) // Cambia el ícono a "cerrado"
+        } else {
+            // Mostrar contraseña
+            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            button.setImageResource(R.drawable.no__ver) // Cambia el ícono a "abierto"
+        }
+
+        // Restaurar la posición del cursor
+        editText.setSelection(cursorPosition)
+
+        // Retorna el nuevo estado de visibilidad
+        return !isVisible
+    }
+
+    // Función para limpiar los EditTexts
+    private fun clearEditTexts() {
+        usernameEditText.text.clear()
+        correoEditText.text.clear()
+        numeroEditText.text.clear()
+        passwordEditText.text.clear()
+        passwordConfEditText.text.clear()
     }
 }
