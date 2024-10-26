@@ -2,29 +2,241 @@ package com.example.fresh_track
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fresh_track.menu
+
 
 class inventario : AppCompatActivity() {
+    private lateinit var nomTextView: TextView
+    private lateinit var codTextView: TextView
+    private lateinit var canTextView: TextView
+    private lateinit var tipTextView: TextView
+    private lateinit var feeTextView: TextView
+    private lateinit var fesTextView: TextView
+    private lateinit var preTextView: TextView
+    private lateinit var modiButton: Button
+
+    // Referencias a los nuevos TextViews y botones
+    private lateinit var nom1TextView: TextView
+    private lateinit var cod1TextView: TextView
+    private lateinit var can1TextView: TextView
+    private lateinit var tip1TextView: TextView
+    private lateinit var fee1TextView: TextView
+    private lateinit var fes1TextView: TextView
+    private lateinit var pre1TextView: TextView
+    private lateinit var modi1Button: Button
+    private lateinit var eli1Button: Button
+
+    // Variables para gestionar la edición
+    private var isEditing = false
+    private var isEditing1 = false // Nuevo estado para noti2
+    private lateinit var nomEditText: EditText
+    private lateinit var codEditText: EditText
+    private lateinit var canEditText: EditText
+    private lateinit var tipEditText: EditText
+    private lateinit var feeEditText: EditText
+    private lateinit var fesEditText: EditText
+    private lateinit var preEditText: EditText
+
+    // Nuevos EditTexts para los nuevos TextViews
+    private lateinit var nom1EditText: EditText
+    private lateinit var cod1EditText: EditText
+    private lateinit var can1EditText: EditText
+    private lateinit var tip1EditText: EditText
+    private lateinit var fee1EditText: EditText
+    private lateinit var fes1EditText: EditText
+    private lateinit var pre1EditText: EditText
+
+    private lateinit var notiLayout: LinearLayout
+    private lateinit var noti2Layout: LinearLayout
+    private lateinit var eliButton: Button
+
+    private lateinit var noti1: LinearLayout
+    private lateinit var noti2: LinearLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_inventario)
 
-        val men = findViewById<ImageButton>(R.id.icon_two)
+        // Inicializar LinearLayouts y botones
+        notiLayout = findViewById(R.id.noti1)
+        noti2Layout = findViewById(R.id.noti2)
+        eliButton = findViewById(R.id.eli)
+        eli1Button = findViewById(R.id.eli1)
+
+
+        noti1 = findViewById(R.id.noti1)
+        noti2 = findViewById(R.id.noti2)
+
+        // Obtener los extras del Intent
+        val showNoti1 = intent.getBooleanExtra("show_noti1", false)
+        val showNoti2 = intent.getBooleanExtra("show_noti2", false)
+
+        // Mostrar ambas notificaciones si estamos en Inventario
+        noti1.visibility = View.VISIBLE // Siempre muestra noti1
+        noti2.visibility = View.VISIBLE // Siempre muestra noti2
+
+        // Si es necesario, puedes manejar la lógica para ocultar las notificaciones aquí
+        // pero ya que deseas mostrar ambas, no es necesario ajustar la visibilidad aquí.
+        // Así que el siguiente código podría no ser necesario:
+        if (showNoti1) {
+            // Puedes agregar lógica aquí si es necesario para la Clase B.
+        } else if (showNoti2) {
+            // También puedes agregar lógica aquí si es necesario para la Clase B.
+        }
+
+
+           val men = findViewById<ImageButton>(R.id.icon_two)
         men.setOnClickListener {
-            // Crear un Intent para iniciar SecondActivity
             val intent = Intent(this, menu::class.java)
-            startActivity(intent) // Inicia la nueva actividad
+            startActivity(intent)
         }
 
         val per = findViewById<ImageButton>(R.id.icon_one)
         per.setOnClickListener {
-            // Crear un Intent para iniciar SecondActivity
             val intent = Intent(this, perfil::class.java)
-            startActivity(intent) // Inicia la nueva actividad
+            startActivity(intent)
         }
+
+        val lupita = findViewById<ImageButton>(R.id.lupa)
+        lupita.setOnClickListener {
+            val intent = Intent(this, busqueda::class.java)
+            startActivity(intent)
+        }
+
+
+        val re = findViewById<ImageButton>(R.id.agregar)
+        re.setOnClickListener {
+            val intent = Intent(this, registro_inventario::class.java)
+            startActivity(intent)
+        }
+
+        // Referencias a los TextViews
+        nomTextView = findViewById(R.id.nom)
+        codTextView = findViewById(R.id.cod)
+        canTextView = findViewById(R.id.can)
+        tipTextView = findViewById(R.id.tip)
+        feeTextView = findViewById(R.id.fee)
+        fesTextView = findViewById(R.id.fes)
+        preTextView = findViewById(R.id.pre)
+
+        // Referencias a los nuevos TextViews y botones
+        nom1TextView = findViewById(R.id.nom1)
+        cod1TextView = findViewById(R.id.cod1)
+        can1TextView = findViewById(R.id.can1)
+        tip1TextView = findViewById(R.id.tip1)
+        fee1TextView = findViewById(R.id.fee1)
+        fes1TextView = findViewById(R.id.fes1)
+        pre1TextView = findViewById(R.id.pre1)
+        modiButton = findViewById(R.id.modi) // Inicializar modiButton
+        modi1Button = findViewById(R.id.modi1) // Inicializar modi1Button
+
+        // Botón para eliminar temporalmente el LinearLayout noti1
+        eliButton.setOnClickListener {
+            notiLayout.visibility = View.GONE
+        }
+
+        // Botón para eliminar temporalmente el LinearLayout noti2
+        eli1Button.setOnClickListener {
+            noti2Layout.visibility = View.GONE
+        }
+
+        // Botón para modificar los TextViews a EditText para noti1
+        modiButton.setOnClickListener {
+            if (!isEditing) {
+                nomEditText = replaceTextViewWithEditText(nomTextView, "nom")
+                codEditText = replaceTextViewWithEditText(codTextView, "cod")
+                canEditText = replaceTextViewWithEditText(canTextView, "can")
+                tipEditText = replaceTextViewWithEditText(tipTextView, "tip")
+                feeEditText = replaceTextViewWithEditText(feeTextView, "fee")
+                fesEditText = replaceTextViewWithEditText(fesTextView, "fes")
+                preEditText = replaceTextViewWithEditText(preTextView, "pre")
+
+                isEditing = true
+            } else {
+                saveAndReplaceEditTextWithTextView(nomEditText, nomTextView)
+                saveAndReplaceEditTextWithTextView(codEditText, codTextView)
+                saveAndReplaceEditTextWithTextView(canEditText, canTextView)
+                saveAndReplaceEditTextWithTextView(tipEditText, tipTextView)
+                saveAndReplaceEditTextWithTextView(feeEditText, feeTextView)
+                saveAndReplaceEditTextWithTextView(fesEditText, fesTextView)
+                saveAndReplaceEditTextWithTextView(preEditText, preTextView)
+
+                isEditing = false
+            }
+        }
+
+        // Botón para modificar los TextViews a EditText para noti2
+        modi1Button.setOnClickListener {
+            if (!isEditing1) {
+                nom1EditText = replaceTextViewWithEditText(nom1TextView, "nom1")
+                cod1EditText = replaceTextViewWithEditText(cod1TextView, "cod1")
+                can1EditText = replaceTextViewWithEditText(can1TextView, "can1")
+                tip1EditText = replaceTextViewWithEditText(tip1TextView, "tip1")
+                fee1EditText = replaceTextViewWithEditText(fee1TextView, "fee1")
+                fes1EditText = replaceTextViewWithEditText(fes1TextView, "fes1")
+                pre1EditText = replaceTextViewWithEditText(pre1TextView, "pre1")
+
+                isEditing1 = true
+            } else {
+                saveAndReplaceEditTextWithTextView(nom1EditText, nom1TextView)
+                saveAndReplaceEditTextWithTextView(cod1EditText, cod1TextView)
+                saveAndReplaceEditTextWithTextView(can1EditText, can1TextView)
+                saveAndReplaceEditTextWithTextView(tip1EditText, tip1TextView)
+                saveAndReplaceEditTextWithTextView(fee1EditText, fee1TextView)
+                saveAndReplaceEditTextWithTextView(fes1EditText, fes1TextView)
+                saveAndReplaceEditTextWithTextView(pre1EditText, pre1TextView)
+
+                isEditing1 = false
+            }
+        }
+    }
+
+    // Función para reemplazar un TextView con un EditText manteniendo el tamaño y estilo
+    private fun replaceTextViewWithEditText(textView: TextView, hint: String): EditText {
+        val editText = EditText(this)
+
+        // Copia las propiedades del TextView
+        editText.id = textView.id
+        editText.layoutParams = textView.layoutParams
+        editText.setText(textView.text)
+        editText.hint = hint
+
+        // Mantener las mismas dimensiones y estilo
+        editText.textSize = textView.textSize / resources.displayMetrics.scaledDensity
+        editText.setPadding(
+            textView.paddingLeft,
+            textView.paddingTop,
+            textView.paddingRight,
+            textView.paddingBottom
+        )
+        editText.background = textView.background
+        editText.setTextColor(textView.currentTextColor)
+
+        // Reemplaza el TextView en su contenedor padre
+        val parent = textView.parent as ViewGroup
+        val index = parent.indexOfChild(textView)
+        parent.removeView(textView)
+        parent.addView(editText, index)
+
+        return editText
+    }
+
+    // Función para guardar los cambios del EditText y volver a crear el TextView
+    private fun saveAndReplaceEditTextWithTextView(editText: EditText, textView: TextView) {
+        textView.text = editText.text.toString()
+
+        val parent = editText.parent as ViewGroup
+        val index = parent.indexOfChild(editText)
+        parent.removeView(editText)
+        parent.addView(textView, index)
     }
 }
