@@ -1,0 +1,37 @@
+package com.example.fresh_track
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class busqueda : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_busqueda)
+
+        val men = findViewById<ImageButton>(R.id.icon_two)
+        men.setOnClickListener {
+            val intent = Intent(this,inventario::class.java)
+            startActivity(intent)
+        }
+
+        val btn1 = findViewById<Button>(R.id.btn_guar)
+        btn1.setOnClickListener {
+            // Mostrar un mensaje de registro guardado
+            Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show()
+
+            btn1.postDelayed({
+                val intent = Intent(this, inventario::class.java)
+                startActivity(intent)
+            }, 1000)
+        }
+
+    }
+}
