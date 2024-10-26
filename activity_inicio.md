@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".inicio">
+
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -23,6 +25,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
+        <!-- Primer ImageButton -->
+
+        <!-- Segundo ImageButton -->
+
         <ImageButton
             android:id="@+id/icon_two"
             android:layout_width="wrap_content"
@@ -32,7 +39,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="228dp"
+            android:layout_width="208dp"
             android:layout_height="28dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -42,10 +49,21 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
-
+        <ImageButton
+            android:id="@+id/icon_tres"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@android:drawable/ic_menu_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.933"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.042"/>
         <ImageView
             android:id="@+id/imageView14"
-            android:layout_width="59dp"
+            android:layout_width="50dp"
             android:layout_height="43dp"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +75,8 @@
 
         <ImageButton
             android:id="@+id/icon_one"
-            android:layout_width="70dp"
-            android:layout_height="104dp"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
             android:background="@android:color/transparent"
             android:src="@drawable/persona"
             android:scaleType="fitCenter"/>
@@ -67,15 +85,15 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="407dp"
-        android:layout_height="309dp"
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
         android:layout_below="@id/header"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="399dp"
         android:background="#f8fcf8"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,16 +104,18 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="381dp"
+            android:layout_height="308dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:alpha="0.5"
             android:padding="16dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/logobien"
-            android:alpha="0.5" /> <!-- Reducción de opacidad al 50% -->
+            android:src="@drawable/logobien" /> <!-- Reducción de opacidad al 50% -->
 
 
         <TextView
@@ -114,16 +134,14 @@
 
         <TextView
             android:id="@+id/welcome_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="146dp"
+            android:layout_width="286dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="94dp"
-            android:layout_marginEnd="66dp"
-            android:layout_marginBottom="98dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginBottom="130dp"
             android:gravity="start|center_vertical"
             android:includeFontPadding="false"
             android:justificationMode="inter_word"
@@ -137,26 +155,28 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_height="314dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="361dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="394dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="22dp"
         android:background="#f8fcf8"
         android:orientation="vertical"
         android:padding="16dp">
 
         <LinearLayout
-            android:layout_width="378dp"
+            android:layout_width="328dp"
             android:layout_height="330dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/fondo"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:scaleType="centerCrop">
 
             <ImageView
                 android:layout_width="64dp"
