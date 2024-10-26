@@ -55,7 +55,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="228dp"
+            android:layout_width="208dp"
             android:layout_height="28dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -68,7 +68,7 @@
 
         <ImageView
             android:id="@+id/imageView14"
-            android:layout_width="59dp"
+            android:layout_width="50dp"
             android:layout_height="43dp"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -80,20 +80,21 @@
 
         <ImageButton
             android:id="@+id/icon_one"
-            android:layout_width="44dp"
-            android:layout_height="38dp"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
             android:layout_marginEnd="16dp"
             android:background="@android:color/transparent"
             android:src="@drawable/persona"
             android:scaleType="fitCenter"/>
 
 
+
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="396dp"
-        android:layout_height="544dp"
+        android:layout_width="398dp"
+        android:layout_height="542dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,17 +120,18 @@
         <!-- Footer Button -->
 
         <LinearLayout
-            android:layout_width="380dp"
-            android:layout_height="223dp"
+            android:id="@+id/noti1"
+            android:layout_width="374dp"
+            android:layout_height="219dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="12dp"
 
-            android:layout_marginBottom="317dp"
+            android:layout_marginBottom="312dp"
             android:background="@drawable/fondo"
 
             android:gravity="center"
@@ -151,6 +153,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/cod"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Codigo: 1234"
@@ -159,6 +162,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/nom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nombre: Papas"
@@ -172,6 +176,7 @@
                     android:orientation="vertical">
 
                     <Button
+                        android:id="@+id/modi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -181,6 +186,7 @@
 
                     <!-- Button "Eliminar" -->
                     <Button
+                        android:id="@+id/eli"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -191,6 +197,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/can"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cantidad: 10"
@@ -198,6 +205,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo: Cajas"
@@ -205,6 +213,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/fee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de entrada: 02/28/22"
@@ -212,6 +221,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/fes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de salida: 03/28/22"
@@ -219,28 +229,28 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/pre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Precio: $150"
                 android:textColor="#111418"
                 android:textSize="14sp" />
 
-            <!-- Product 2 (same structure as Product 1) -->
-            <!-- Repeat Product structure here for each product -->
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/noti2"
             android:layout_width="377dp"
             android:layout_height="237dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="237dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginEnd="7dp"
 
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="67dp"
             android:background="@drawable/fondo"
             android:gravity="center"
             android:orientation="vertical">
@@ -261,6 +271,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/cod1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Codigo: 5678"
@@ -269,6 +280,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/nom1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nombre: Piñas"
@@ -282,6 +294,7 @@
                     android:orientation="vertical">
 
                     <Button
+                        android:id="@+id/modi1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -291,6 +304,7 @@
 
                     <!-- Button "Eliminar" -->
                     <Button
+                        android:id="@+id/eli1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -301,6 +315,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/can1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cantidad: 8"
@@ -308,6 +323,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tip1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo: Cajas"
@@ -315,6 +331,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/fee1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de entrada: 02/28/22"
@@ -322,6 +339,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/fes1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de salida: 03/28/22"
@@ -329,6 +347,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/pre1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Precio: $350"
@@ -340,6 +359,7 @@
         </LinearLayout>
 
         <LinearLayout
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -363,10 +383,11 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView15"
+    <ImageButton
+        android:id="@+id/agregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
@@ -374,5 +395,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.16"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/lupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153"
+        android:background="@android:color/transparent"
+        app:srcCompat="@android:drawable/ic_menu_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
